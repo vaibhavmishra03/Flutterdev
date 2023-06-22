@@ -9,13 +9,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CATALOGUE APP",
-            style: TextStyle
-            (fontStyle:FontStyle.italic),
-            ),
+        title: const Text(
+          "CATALOGUE APP",
+          style: TextStyle(fontStyle: FontStyle.italic),
+        ),
       ),
-      body: Center(
-        child: const Text("FLUTTER HOME"),
+      body: const Center(
+        child: Text("FLUTTER HOME"),
       ),
       drawer: const Drawer(),
     );
