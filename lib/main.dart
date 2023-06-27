@@ -18,8 +18,8 @@ class Myapp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.deepPurple,
             fontFamily: GoogleFonts.boogaloo().fontFamily),
-        debugShowCheckedModeBanner: true,
-        initialRoute: "/",
+        //debugShowCheckedModeBanner: true,
+        initialRoute: "/home",
         routes: {
           "/": (context) => const Loginpage(),
           Myroutes.homeroute: (context) => const HomePage(),
