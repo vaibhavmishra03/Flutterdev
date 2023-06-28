@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myhr/pages/Login_page.dart';
 import 'package:myhr/pages/home_page.dart';
 import 'package:myhr/utils/routes.dart';
+import 'package:myhr/widgets/themes.dart';
 
 void main() {
   runApp(const Myapp());
@@ -12,16 +12,14 @@ class Myapp extends StatelessWidget {
   const Myapp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
         themeMode: ThemeMode.light,
-        darkTheme: ThemeData(brightness: Brightness.dark),
-        theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
-            fontFamily: GoogleFonts.boogaloo().fontFamily),
+        darkTheme: Mytheme.darkTheme(context),
+        theme: Mytheme.lightTheme(context),
         //debugShowCheckedModeBanner: true,
         initialRoute: "/home",
         routes: {
-          "/": (context) => const Loginpage(),
+          "/": (context) => const HomePage(),
           Myroutes.homeroute: (context) => const HomePage(),
           Myroutes.loginroute: (context) => const Loginpage()
         });

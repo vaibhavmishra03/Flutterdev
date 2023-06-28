@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "CATALOGUE APP",
-          style: TextStyle(fontStyle: FontStyle.italic),
+          style: TextStyle(fontStyle: FontStyle.italic,color: Colors.black),
         ),
       ),
       body: const Center(
