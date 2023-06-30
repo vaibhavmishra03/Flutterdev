@@ -9,7 +9,7 @@ class Itemwidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.all(9.0),
+          padding: const EdgeInsets.all(9.0),
           child: Card(
             // shape: ContinuousRectangleBorder(),
             child: ListTile(
