@@ -6,17 +6,7 @@ import 'dart:convert';
 // import 'package:flutter/services.dart';
 
 class Catalogue {
-   static  List<Item> items = [
-    Item(
-       id: 1,
-      name: "iphone 14 pro max",
-      desc: "Phone for the future",
-     price: 999,
-      color: "#33505a",
-      imageurl:
-         "https://m.media-amazon.com/images/I/71yzJoE7WlL._AC_UF1000,1000_QL80_.jpg",
-   ),
-  ];
+   static  List<Item> items = [];
 }
 
 class Item {

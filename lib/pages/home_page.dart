@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    //await Future.delayed(Duration(seconds: 2));
+    //await Future.delayed(Duration(seconds: 1));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     await Future.delayed(Duration(seconds: 2));
@@ -49,14 +49,13 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
       child: Container(
         padding: Vx.m32,
-        child: Column(children: [
+        child: Column(children: [ 
           catalogheader(),
           if (Catalogue.items.isNotEmpty)
             CatalogList().expand()
           else
-            Center(
-              child: CircularProgressIndicator(),
-            )
+             CircularProgressIndicator().centered().expand(),
+            
         ]),
       ),
     ));
