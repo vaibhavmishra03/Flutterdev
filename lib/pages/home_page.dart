@@ -1,14 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:myhr/utils/routes.dart';
 import 'package:myhr/widgets/home_widget/catalog_list.dart';
+import 'package:myhr/widgets/themes.dart';
 import "package:velocity_x/velocity_x.dart";
 import 'package:flutter/services.dart' show rootBundle;
 
 import "package:myhr/models/catalog.dart";
-
-
 
 import '../widgets/home_widget/catalogheader.dart';
 
@@ -48,16 +49,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //final dummylist = List.generate(30, (index) => Catalogue.items[0]);
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Mytheme.blueish,
+            onPressed: () => Navigator.pushNamed(context, Myroutes.cartroute),
+            child: Icon(CupertinoIcons.cart)),
         body: SafeArea(
       child: Container(
         padding: Vx.m32,
-        child: Column(children: [ 
+        child: Column(children: [
           const catalogheader(),
           if (Catalogue.items.isNotEmpty)
             const CatalogList().expand()
           else
-             const CircularProgressIndicator().centered().expand(),
-            
+            const CircularProgressIndicator().centered().expand(),
         ]),
       ),
     ));

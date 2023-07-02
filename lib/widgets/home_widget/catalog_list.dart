@@ -5,9 +5,6 @@ import 'package:myhr/widgets/home_widget/catalog_image.dart';
 import 'package:myhr/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-
-
-
 class CatalogList extends StatelessWidget {
   const CatalogList({super.key});
 
@@ -19,12 +16,17 @@ class CatalogList extends StatelessWidget {
       itemBuilder: (context, index) {
         final catalog = Catalogue.items[index];
         return InkWell(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDetailPage(catalog: catalog),)),
-          child: CatalogItem(catalog: catalog));
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeDetailPage(catalog: catalog),
+                )),
+            child: CatalogItem(catalog: catalog));
       },
     );
   }
 }
+
 class CatalogItem extends StatelessWidget {
   final Item catalog;
   const CatalogItem({super.key, required this.catalog});
@@ -52,7 +54,7 @@ class CatalogItem extends StatelessWidget {
                         backgroundColor:
                             MaterialStatePropertyAll(Mytheme.blueish),
                         shape: const MaterialStatePropertyAll(StadiumBorder())),
-                    child: "buy".text.make())
+                    child: "To Cart".text.make())
               ],
             )
           ],

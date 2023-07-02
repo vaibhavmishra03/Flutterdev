@@ -16,7 +16,7 @@ class CatalogItem extends StatelessWidget {
         child: Row(
       children: [
         Hero(
-          tag: Key(catalog.imageurl) ,
+            tag: Key(catalog.imageurl),
             child: Catalogimage(image: catalog.imageurl)),
         Expanded(
             child: Column(
@@ -35,7 +35,7 @@ class CatalogItem extends StatelessWidget {
                         backgroundColor:
                             MaterialStatePropertyAll(Mytheme.blueish),
                         shape: const MaterialStatePropertyAll(StadiumBorder())),
-                    child: "buy".text.make())
+                    child: "Add to cart".text.make())
               ],
             )
           ],

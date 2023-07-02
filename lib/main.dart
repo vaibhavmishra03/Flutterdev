@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:myhr/pages/HomeDeatailPage.dart';
+
 import 'package:myhr/pages/Login_page.dart';
+import 'package:myhr/pages/cart_page.dart';
 import 'package:myhr/pages/home_page.dart';
 import 'package:myhr/utils/routes.dart';
 import 'package:myhr/widgets/themes.dart';
@@ -17,12 +18,13 @@ class Myapp extends StatelessWidget {
         themeMode: ThemeMode.light,
         darkTheme: Mytheme.darkTheme(context),
         theme: Mytheme.lightTheme(context),
-        //debugShowCheckedModeBanner: true,
+        debugShowCheckedModeBanner: false,
         initialRoute: "/home",
         routes: {
           "/": (context) =>  const HomePage(),
           Myroutes.homeroute: (context) => const HomePage(),
-          Myroutes.loginroute: (context) => const Loginpage()
+          Myroutes.loginroute: (context) => const Loginpage(),
+             Myroutes.cartroute: (context) => const CartPage()
         });
   }
 }
