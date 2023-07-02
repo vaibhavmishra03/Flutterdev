@@ -19,6 +19,6 @@ import 'package:google_fonts/google_fonts.dart';
       ThemeData(brightness: Brightness.dark);
 
 //colors
- static Color creamish =  Color(0xfff5f5f5);
- static Color blueish =  Color(0xff403b58);
+ static Color creamish =  const Color(0xfff5f5f5);
+ static Color blueish =  const Color(0xff403b58);
   }

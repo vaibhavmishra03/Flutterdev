@@ -14,7 +14,7 @@ class Itemwidget extends StatelessWidget {
             // shape: ContinuousRectangleBorder(),
             child: ListTile(
               onTap: () {
-                print(item.name);
+                //print(item.name);
               },
               leading: Image.network(item.imageurl),
               title: Text(item.name),
