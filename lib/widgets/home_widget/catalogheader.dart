@@ -14,7 +14,7 @@ class catalogheader extends StatelessWidget {
         "Catalog App"
             .text
             .align(TextAlign.justify)
-            .color(Mytheme.blueish)
+            .color(context.theme.colorScheme.secondary)
             .xl5
             .bold
             .make(),

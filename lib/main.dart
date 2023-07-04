@@ -14,17 +14,18 @@ class Myapp extends StatelessWidget {
   const Myapp({super.key});
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        themeMode: ThemeMode.light,
-        darkTheme: Mytheme.darkTheme(context),
+    return MaterialApp(
+        themeMode: ThemeMode.dark,
+        // theme: ThemeData.dark(),
         theme: Mytheme.lightTheme(context),
+        darkTheme: Mytheme.darkTheme(context),
         debugShowCheckedModeBanner: false,
         initialRoute: "/home",
         routes: {
-          "/": (context) =>  const HomePage(),
+          "/": (context) => const HomePage(),
           Myroutes.homeroute: (context) => const HomePage(),
           Myroutes.loginroute: (context) => const Loginpage(),
-             Myroutes.cartroute: (context) => const CartPage()
+          Myroutes.cartroute: (context) => const CartPage()
         });
   }
 }

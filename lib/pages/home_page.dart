@@ -49,22 +49,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //final dummylist = List.generate(30, (index) => Catalogue.items[0]);
     return Scaffold(
+        backgroundColor:
+            context.canvasColor, //normalway ---> Theme.Of(context).canvascolor
         floatingActionButton: FloatingActionButton(
-            backgroundColor: Mytheme.blueish,
+            backgroundColor: context.theme.highlightColor,
             onPressed: () => Navigator.pushNamed(context, Myroutes.cartroute),
-            child: Icon(CupertinoIcons.cart)),
+            child: Icon(CupertinoIcons.cart).iconColor(Colors.white)),
         body: SafeArea(
-      child: Container(
-        padding: Vx.m32,
-        child: Column(children: [
-          const catalogheader(),
-          if (Catalogue.items.isNotEmpty)
-            const CatalogList().expand()
-          else
-            const CircularProgressIndicator().centered().expand(),
-        ]),
-      ),
-    ));
+          child: Container(
+            padding: Vx.m32,
+            child: Column(children: [
+              const catalogheader(),
+              if (Catalogue.items.isNotEmpty)
+                const CatalogList().expand()
+              else
+                const CircularProgressIndicator().centered().expand(),
+            ]),
+          ),
+        ));
   }
 }
 

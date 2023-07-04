@@ -16,35 +16,19 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: Container(
-          child: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        children: [
-          "\$${catalog.price}".text.bold.make(),
-          ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStatePropertyAll(Mytheme.blueish),
-                      shape: MaterialStateProperty.all(StadiumBorder())),
-                  child: "Add to cart".text.xl.bold.make())
-              .wh(120, 50),
-        ],
-      ) //.//color(Mytheme.creamish),
-          ),
       appBar: AppBar(
-        backgroundColor: Mytheme.creamish,
+        backgroundColor: Colors.transparent,
       ),
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         top: false,
         bottom: true,
         child: Container(
-          color: Mytheme.creamish,
+          color: context.canvasColor,
           child: Column(
             children: [
               Hero(
-                  tag: Key(catalog.imageurl),
+                  tag: Key(catalog.id.toString()),
                   child: Image.network(catalog.imageurl).h32(context)),
               Expanded(
                 child: VxArc(
@@ -52,11 +36,11 @@ class HomeDetailPage extends StatelessWidget {
                   arcType: VxArcType.CONVEY,
                   edge: VxEdge.TOP,
                   child: Container(
-                    color: Colors.white,
+                    color: context.cardColor,
                     child: Column(
                       children: [
                         catalog.name.text.xl5
-                            .color(Mytheme.blueish)
+                            .color(context.theme.colorScheme.secondary)
                             .bold
                             .make(),
                         catalog.desc.text.xl
@@ -77,6 +61,23 @@ class HomeDetailPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: Container(
+          color: context.cardColor,
+          child: ButtonBar(
+            alignment: MainAxisAlignment.spaceBetween,
+            children: [
+              "\$${catalog.price}".text.bold.make(),
+              ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(
+                              context.theme.highlightColor),
+                          shape: MaterialStateProperty.all(StadiumBorder())),
+                      child: "Add to cart".text.xl.bold.make())
+                  .wh(120, 50),
+            ],
+          ) //.//color(Mytheme.creamish),
+          ),
     );
   }
 }

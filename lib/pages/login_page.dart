@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
 import "package:flutter/material.dart";
+import "package:google_fonts/google_fonts.dart";
 import "package:myhr/utils/routes.dart";
+import "package:velocity_x/velocity_x.dart";
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -15,26 +17,25 @@ class _LoginpageState extends State<Loginpage> {
   bool changebutton = false;
   final _formkey = GlobalKey<FormState>();
   movetohome(BuildContext context) async {
-    if (_formkey.currentState!.validate()){
-    setState(() {
-      changebutton = true;
-    });
+    if (_formkey.currentState!.validate()) {
+      setState(() {
+        changebutton = true;
+      });
 
-    await Future.delayed(const Duration(seconds: 1));
-    // ignore: use_build_context_synchronously
-    await Navigator.pushNamed(context, Myroutes.homeroute);
+      await Future.delayed(const Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
+      await Navigator.pushNamed(context, Myroutes.homeroute);
 
-    setState(() {
-      changebutton = false;
+      setState(() {
+        changebutton = false;
+      });
     }
-    );
-      }
   }
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: Form(
         key: _formkey,
         child: Column(
@@ -46,10 +47,19 @@ class _LoginpageState extends State<Loginpage> {
             const SizedBox(
               height: 16.0,
             ),
-            Text(
-              "WELCOME $name !",
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            "WELCOME $name !"
+                .text
+                .bold
+                .xl3
+                .color(context.theme.colorScheme.secondary)
+                .make(),
+            // Text(
+            //   "WELCOME $name !",
+            //   style: const TextStyle(
+            //       color: Colors.white,
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 24),
+            // ),
             const SizedBox(
               height: 16.0,
             ),
@@ -94,7 +104,7 @@ class _LoginpageState extends State<Loginpage> {
                     height: 60.0,
                   ),
                   Material(
-                    color: Colors.deepPurple,
+                    color: context.theme.highlightColor,
                     borderRadius:
                         BorderRadius.circular(changebutton ? 50.0 : 8.0),
                     child: InkWell(
