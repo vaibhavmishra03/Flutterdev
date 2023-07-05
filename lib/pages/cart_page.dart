@@ -5,7 +5,7 @@ import 'package:myhr/models/cartmodel.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({super.key});
+   CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const cartList().p24().expand(),
-          const Divider(),
-          const _CartTotal(),
+           cartList().p24().expand(),
+           Divider(),
+           _CartTotal(),
         ],
       ),
     );
@@ -31,7 +31,7 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-  const _CartTotal();
+   _CartTotal();
 
   @override
   Widget build(BuildContext context) {
@@ -60,32 +60,20 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class cartList extends StatefulWidget {
-  const cartList({super.key});
-
-  @override
-  State<cartList> createState() => _cartListState();
-}
-
-class _cartListState extends State<cartList> {
+class cartList extends StatelessWidget{
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return _cart.items.isEmpty ? "Nothing to show".text.xl3.makeCentered() : ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context, index) => ListTile(
-        leading: const Icon(CupertinoIcons.check_mark_circled),
+        leading:  Icon(CupertinoIcons.check_mark_circled),
         trailing:
-         const Icon(CupertinoIcons.delete),
+          Icon(CupertinoIcons.delete),
          onTap: () {
            _cart.remove(_cart.items[index]);
-           setState(() {
-             
-           });
          },
-         
-
-
+           
         title: _cart.items[index].name.text.make(),
       ),
     );

@@ -67,8 +67,7 @@ class HomeDetailPage extends StatelessWidget {
             alignment: MainAxisAlignment.spaceBetween,
             children: [
               "\$${catalog.price}".text.bold.make(),
-              AddToCart(catalog: catalog
-              ).wh(120, 50),
+               AddToCart(catalog: catalog).wh(120, 50),
             ],
           ) //.//color(Mytheme.creamish),
           ),
