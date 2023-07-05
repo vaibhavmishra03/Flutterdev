@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:myhr/utils/routes.dart';
 import 'package:myhr/widgets/home_widget/catalog_list.dart';
-import 'package:myhr/widgets/themes.dart';
+
 import "package:velocity_x/velocity_x.dart";
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: FloatingActionButton(
             backgroundColor: context.theme.highlightColor,
             onPressed: () => Navigator.pushNamed(context, Myroutes.cartroute),
-            child: Icon(CupertinoIcons.cart).iconColor(Colors.white)),
+            child: const Icon(CupertinoIcons.cart).iconColor(Colors.white)),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

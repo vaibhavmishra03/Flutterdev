@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import "package:flutter/material.dart";
-import "package:google_fonts/google_fonts.dart";
+
 import "package:myhr/utils/routes.dart";
 import "package:velocity_x/velocity_x.dart";
 
