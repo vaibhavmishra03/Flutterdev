@@ -1,15 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart' as http;
 import "package:flutter/material.dart";
-import 'package:myhr/utils/routes.dart';
-import 'package:myhr/widgets/home_widget/catalog_list.dart';
-
 import "package:velocity_x/velocity_x.dart";
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+
 import "package:myhr/models/catalog.dart";
+import 'package:myhr/core/store.dart';
+import 'package:myhr/models/cartmodel.dart';
+import 'package:myhr/utils/routes.dart';
+import 'package:myhr/widgets/home_widget/catalog_list.dart';
 
 import '../widgets/home_widget/catalogheader.dart';
 
@@ -47,14 +49,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     //final dummylist = List.generate(30, (index) => Catalogue.items[0]);
     return Scaffold(
         backgroundColor:
             context.canvasColor, //normalway ---> Theme.Of(context).canvascolor
-        floatingActionButton: FloatingActionButton(
-            backgroundColor: context.theme.highlightColor,
-            onPressed: () => Navigator.pushNamed(context, Myroutes.cartroute),
-            child: const Icon(CupertinoIcons.cart).iconColor(Colors.white)),
+        floatingActionButton: VxBuilder(
+          mutations: {AddMutation, RemoveMutation},
+          builder: (context, store, _) => FloatingActionButton(
+                  backgroundColor: context.theme.highlightColor,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Myroutes.cartroute),
+                  child:
+                      const Icon(CupertinoIcons.cart).iconColor(Colors.white))
+              .badge(
+                  color: Vx.green500,
+                  size: 22,
+                  count: _cart.items.length,
+                  textStyle: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+        ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

@@ -33,8 +33,8 @@ class HomeDetailPage extends StatelessWidget {
               Expanded(
                 child: VxArc(
                   height: 30.0,
-                  arcType: VxArcType.CONVEY,
-                  edge: VxEdge.TOP,
+                  arcType: VxArcType.convey,
+                  edge: VxEdge.top,
                   child: Container(
                     color: context.cardColor,
                     child: Column(
@@ -66,8 +66,8 @@ class HomeDetailPage extends StatelessWidget {
           child: ButtonBar(
             alignment: MainAxisAlignment.spaceBetween,
             children: [
-              "\$${catalog.price}".text.bold.make(),
-               AddToCart(catalog: catalog).wh(120, 50),
+              "₹${catalog.price}".text.xl3.bold.make(),
+              AddToCart(catalog: catalog).wh(120, 50),
             ],
           ) //.//color(Mytheme.creamish),
           ),
