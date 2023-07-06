@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+
 import "package:flutter/material.dart";
 import "package:velocity_x/velocity_x.dart";
 import 'package:flutter/cupertino.dart';
@@ -49,13 +49,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = (VxState.store as MyStore).cart;
+    final cart = (VxState.store as MyStore).cart;
     //final dummylist = List.generate(30, (index) => Catalogue.items[0]);
     return Scaffold(
         backgroundColor:
             context.canvasColor, //normalway ---> Theme.Of(context).canvascolor
         floatingActionButton: VxBuilder(
-          mutations: {AddMutation, RemoveMutation},
+          mutations: const {AddMutation, RemoveMutation},
           builder: (context, store, _) => FloatingActionButton(
                   backgroundColor: context.theme.highlightColor,
                   onPressed: () =>
@@ -65,8 +65,8 @@ class _HomePageState extends State<HomePage> {
               .badge(
                   color: Vx.green500,
                   size: 22,
-                  count: _cart.items.length,
-                  textStyle: TextStyle(
+                  count: cart.items.length,
+                  textStyle: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold)),
         ),
         body: SafeArea(
